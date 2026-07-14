@@ -18,13 +18,16 @@ test('Website', async ({ page }) => {
   await page.goto("https://rahulshettyacademy.com/client/");
 
   //Login
-  await page.locator("[type='email']").fill(userName);
-  await page.locator("[type='password']").fill('Abcd@1234');
-  await page.locator("#login").click();
+  
+  await page.getByPlaceholder('email@example.com').fill(userName);
+  await page.getByPlaceholder('enter your passsword').fill('Abcd@1234');
+  await page.getByRole('button', { name: 'Login' }).click();
 
   await page.locator(".card-body b").first().waitFor();   // load the product object
-  const titles = await page.locator(".card-body b").allTextContents();  // get all the products name
-  console.log("Titles: ", titles);
+  // const titles = await page.locator(".card-body b").allTextContents();  // get all the products name
+  // console.log("Titles: ", titles);
+
+  
 
   // Pass product name dynamically and select that product and add to card
   const productCount = await products.count();
