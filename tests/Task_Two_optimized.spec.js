@@ -23,9 +23,6 @@ test('Website', async ({ page }) => {
   await page.getByPlaceholder('enter your passsword').fill('Abcd@1234');
   await page.getByRole('button', { name: 'Login' }).click();
 
-
-
-
   await page.locator(".card-body b").first().waitFor();   // load the product object
   const titles = await page.locator(".card-body b").allTextContents();  // get all the products name
   console.log("Titles: ", titles);
@@ -68,9 +65,6 @@ test('Website', async ({ page }) => {
   await page.locator('text=Name on Card').locator('xpath=..//input').fill('John Doe');
   await page.locator('text=CVV Code ').locator('xpath=..//input').fill('787');
 
-
-
-
   // //validate email id
   // await expect(page.locator(".user__name [type='text']").first()).toHaveText(userName);
 
@@ -98,7 +92,7 @@ test('Website', async ({ page }) => {
   // expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
 
   await expect(page.getByText('Thankyou for the order.')).toBeVisible();
-  
+
   // await page.locator("text=Click To Download Order Details in CSV").click();
   // const productID = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
   // console.log("Id:",productID);
@@ -110,9 +104,6 @@ test('Website', async ({ page }) => {
   // const productTableRow = await page.locator('tbody tr');
   // const rowLength = await productTableRow.count();
   // console.log(rowLength);
-
-
-
 
   // for (let i = 0; i < rowLength; i++) {
   //    const rowOrderId = await productTableRow.nth(i).locator("th").textContent();
