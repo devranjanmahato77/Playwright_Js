@@ -23,16 +23,14 @@ const config = ({
   expect: {
     timeout: 5000,
   },
-
-  // If you want REPORT (in HTML) after every execution
-  reporter: 'html',
+  reporter: 'html',   // If you want REPORT (in HTML) after every execution
 
   // to set what brower you want to run
   use: {
+    actionTimeout: 10 * 1000,     // ACTION Timeout (click, fill, waitFor, etc.)
+    navigationTimeout: 30 * 1000, // traverse between tabs
     browserName: 'chromium',    // firefox, webkit, chromium
-
-    // 'npx playwright test --headed' :: true(without browser)
-    headless: false
+    headless: false             // 'npx playwright test --headed' :: true(without browser)
   },
 
 });

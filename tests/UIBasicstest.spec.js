@@ -16,7 +16,7 @@ test('Page Playwright test', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/practice');     // go with default brower without cookies
 });
 
-//If you want to run only one test then
+//If you want to run only one test then use "test.only"
 test('Only run this TC', async ({page})=>{
     await page.goto('https://www.facebook.com/');
 

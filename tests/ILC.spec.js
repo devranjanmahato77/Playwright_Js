@@ -35,7 +35,7 @@ test('Playwright special locators', async ({ page }) => {
 
     // assertion
     // when we wrap the assertion with expect it will wait for 5s if needed
-    await expect(page.getByText('Success! The Form has been submitted successfully!.')).toBeVisible();  // return nothing, just verify. here if it fails it will stop execution
+    // await expect(page.getByText('Success! The Form has been submitted successfully!.')).toBeVisible();  // return nothing, just verify. here if it fails it will stop execution
 
     // what if, text taking more then 5s to display then? override timeout {timeout:10_000} 10s - step level override
     await expect(page.getByText('Success! The Form has been submitted successfully!.')).toBeVisible({ timeout: 10_000 });// here we can provide timeout in ms, 10_000 = 10s
@@ -44,7 +44,8 @@ test('Playwright special locators', async ({ page }) => {
     // till now we see step level and global level - expect time
     // what if we need test level time out?
 
-    
+    // Priority wise
+    // Global level (3) --> Test level (2) --> step level (1: top priority) 
 });
 
 test('Playwright test level timeout', async ({ page }) => {
